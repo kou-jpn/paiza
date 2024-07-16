@@ -11,10 +11,14 @@
         @foreach ($articles as $article)
             <p>
                 
-                    <a href="articles/{{ $article->id }}/">{{ $article->id }}
+                    <a href="/articles/{{ $article->id }}/">{{ $article->id }}
                     {{ $article->content }},
                     {{ $article->user_name }}
                 </a>
         @endforeach
+        <div>
+            <a href="articles/create/">新規投稿</a>
+            
+        </div>
     </body>
 </html>

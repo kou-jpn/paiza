@@ -20,9 +20,13 @@ class ArticleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $article = new Article();
+        $article->content = 'hello bbs';
+        $article->user_name ='taro';
+        $article->save();
+        return redirect('articles');
     }
 
     /**
@@ -62,8 +66,10 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('articles');
     }
 }
